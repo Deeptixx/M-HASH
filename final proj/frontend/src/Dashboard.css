@@ -1,0 +1,163 @@
+/* ── Root layout ─── */
+.dash-root {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 12px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dash-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.dash-right {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Shared card styles ─── */
+.card-section {
+  padding: 14px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-2);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Risk badge ─── */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* ── Hotspot item ─── */
+.hotspot-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s;
+  border-left: 3px solid transparent;
+}
+.hotspot-row:hover { background: var(--bg-hover); }
+
+/* ── Strategy cards ─── */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.strategy-card {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-2);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: var(--bg-2);
+}
+.strategy-card:hover { border-color: var(--border-3); background: var(--bg-3); }
+.strategy-card.active { border-color: var(--sky); background: var(--sky-bg); }
+.strategy-card.recommended { border-color: var(--emerald); background: var(--emerald-bg); }
+.strategy-card.out-of-budget { opacity: 0.45; border-style: dashed; }
+
+/* ── Timeline ─── */
+.timeline-wrap { display: flex; flex-direction: column; }
+.tl-step {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.tl-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--rose), transparent);
+}
+.tl-dot {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-border);
+  background: var(--rose-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: var(--rose);
+  flex-shrink: 0;
+}
+
+/* ── Before/After ─── */
+.ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ba-cell { padding: 10px; border-radius: 6px; }
+.ba-before { background: var(--rose-bg); border: 1px solid var(--rose-border); }
+.ba-after { background: var(--emerald-bg); border: 1px solid var(--emerald-border); }
+.ba-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; }
+
+/* ── Packages table ─── */
+.pkg-table { width: 100%; border-collapse: collapse; }
+.pkg-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-1);
+  position: sticky;
+  top: 0;
+  background: var(--bg-1);
+}
+.pkg-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border-1);
+  font-size: 12px;
+}
+.pkg-table tr { cursor: pointer; transition: background 0.1s; }
+.pkg-table tr:hover td { background: var(--bg-hover); }
+
+/* ── Lock-in bars ─── */
+.lockin-bar-wrap { height: 6px; background: var(--bg-3); border-radius: 3px; overflow: hidden; }
+.lockin-bar { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+
+/* ── Btn ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: var(--r-sm);
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  border: none; transition: all 0.15s; width: 100%;
+  justify-content: center; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.btn-danger {
+  background: var(--rose);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(251,113,133,0.25);
+}
+.btn-danger:hover:not(:disabled) {
+  box-shadow: 0 0 28px rgba(251,113,133,0.4);
+  filter: brightness(1.1);
+}
+.btn-danger:disabled { opacity: 0.4; cursor: not-allowed; }

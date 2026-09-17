@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ── DARK MODE (default) — vibrant ────────────────────────────────── */
+:root {
+  --bg-0: #08090e;
+  --bg-1: #0d0f18;
+  --bg-2: #131620;
+  --bg-3: #191c28;
+  --bg-hover: #1e2230;
+
+  --border-1: #1d2035;
+  --border-2: #252840;
+  --border-3: #2e3350;
+
+  --text-0: #f1f2f8;
+  --text-1: #9aa0bd;
+  --text-2: #5c6280;
+  --text-3: #383d55;
+
+  --sky: #38bdf8;
+  --sky-muted: #0ea5e9;
+  --sky-bg: rgba(56,189,248,0.10);
+  --sky-border: rgba(56,189,248,0.25);
+
+  --violet: #a78bfa;
+  --violet-muted: #7c3aed;
+  --violet-bg: rgba(167,139,250,0.10);
+  --violet-border: rgba(167,139,250,0.25);
+
+  --rose: #fb7185;
+  --rose-muted: #e11d48;
+  --rose-bg: rgba(251,113,133,0.10);
+  --rose-border: rgba(251,113,133,0.25);
+
+  --amber: #fbbf24;
+  --amber-muted: #d97706;
+  --amber-bg: rgba(251,191,36,0.10);
+  --amber-border: rgba(251,191,36,0.25);
+
+  --emerald: #34d399;
+  --emerald-muted: #059669;
+  --emerald-bg: rgba(52,211,153,0.10);
+  --emerald-border: rgba(52,211,153,0.25);
+
+  --slate: #94a3b8;
+  --slate-bg: rgba(148,163,184,0.08);
+  --slate-border: rgba(148,163,184,0.18);
+
+  --danger: var(--rose);
+  --warning: var(--amber);
+  --ok: var(--emerald);
+  --info: var(--sky);
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --r-sm: 5px;
+  --r-md: 8px;
+  --r-lg: 12px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+
+  --grid-color: rgba(56,189,248,0.018);
+}
+
+/* ── LIGHT MODE — vibrant on white ───────────────────────────────── */
+[data-theme="light"] {
+  --bg-0: #f0f2ff;
+  --bg-1: #ffffff;
+  --bg-2: #eaecf8;
+  --bg-3: #e0e3f4;
+  --bg-hover: #d6d9ee;
+
+  --border-1: #cbd0e8;
+  --border-2: #b8bedd;
+  --border-3: #a5acd2;
+
+  --text-0: #0f1023;
+  --text-1: #2d3260;
+  --text-2: #5a608a;
+  --text-3: #8890b8;
+
+  --sky: #0284c7;
+  --sky-muted: #0369a1;
+  --sky-bg: rgba(2,132,199,0.08);
+  --sky-border: rgba(2,132,199,0.22);
+
+  --violet: #7c3aed;
+  --violet-muted: #6d28d9;
+  --violet-bg: rgba(124,58,237,0.08);
+  --violet-border: rgba(124,58,237,0.22);
+
+  --rose: #e11d48;
+  --rose-muted: #be123c;
+  --rose-bg: rgba(225,29,72,0.08);
+  --rose-border: rgba(225,29,72,0.22);
+
+  --amber: #d97706;
+  --amber-muted: #b45309;
+  --amber-bg: rgba(217,119,6,0.08);
+  --amber-border: rgba(217,119,6,0.22);
+
+  --emerald: #059669;
+  --emerald-muted: #047857;
+  --emerald-bg: rgba(5,150,105,0.08);
+  --emerald-border: rgba(5,150,105,0.22);
+
+  --slate: #475569;
+  --slate-bg: rgba(71,85,105,0.07);
+  --slate-border: rgba(71,85,105,0.18);
+
+  --danger: var(--rose);
+  --warning: var(--amber);
+  --ok: var(--emerald);
+  --info: var(--sky);
+
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.10);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.14);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.18);
+
+  --grid-color: rgba(2,132,199,0.028);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-0);
+  color: var(--text-0);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel {
+  background: var(--bg-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+.mono { font-family: var(--font-mono); font-size: 11px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+.fade-up { animation: fadeUp 0.25s ease forwards; }
